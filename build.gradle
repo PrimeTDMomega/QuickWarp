@@ -29,7 +29,7 @@ dependencies {
 
 application {
     mainClass = 'me.prime.quickwarp.QuickWarp'
-    version = '1.2.0-BETA'
+    version = '1.2.1-BETA'
     applicationDefaultJvmArgs = ['-Xmx1024M']
 }
 
@@ -38,11 +38,11 @@ jar {
         attributes(
             'Main-Class': 'me.prime.quickwarp.QuickWarp',
             'Implementation-Title': 'QuickWarp',
-            'Implementation-Version': '1.2.0-BETA',
+            'Implementation-Version': '1.2.1-BETA',
             'Implementation-Vendor': 'PrimeTDM',
             'Implementation-URL': 'https://example.com',
-            'Bukkit-Plugin-Version': '1.2.0-BETA',
-            'Bukkit-API-Version': '1.8.8'
+            'Bukkit-Plugin-Version': '1.2.1-BETA',
+            'Bukkit-API-Version': '1.20.4'
         )
     }
 }

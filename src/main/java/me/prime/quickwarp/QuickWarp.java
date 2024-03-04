@@ -1,3 +1,5 @@
+package me.prime.quickwarp;
+
 // wk owns u and all
 
 import org.bukkit.Bukkit;
