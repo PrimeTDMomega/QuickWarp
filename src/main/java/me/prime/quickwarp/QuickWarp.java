@@ -17,7 +17,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-public class QuickWarp extends JavaPlugin implements CommandExecutor {
+public class QuickWarp extends JavaPlugin {
 
     private FileConfiguration config;
     private Map<String, Location> warpLocations;
