@@ -35,7 +35,7 @@ gradlew build
 If you want to contribute then fork the repository, make changes you want  and then make a pull request with a good description/title.
 
 # LICENSE
-This repository/project uses the GPL-3.0 LICENSE view [here](LICENSE)
+This repository/project uses the GPL-3.0 LICENSE view [here](LICENSE).
 
 # Credit
 [prime](https://github.com/PrimeTDMomega/) - Cool HOOman
