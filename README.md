@@ -1,43 +1,80 @@
-# QuickWarp
+# QuickWarp Plugin Wiki
+
 A simple PaperMC plugin that allows players to switch between dimensions using commands.
 
 This is mostly for Minecraft Survival servers with many players on the same map in maybe a Lifesteal, Hardcore or Factions setup basically removing the hastle of end portals and portal trapping/portal crashing by directly teleporting a player to the dimension.
 
+## Table of Contents
+1. [Installation](#installation)
+2. [Commands](#commands)
+    - [Basic Dimension Teleportation](#basic-dimension-teleportation)
+    - [Admin-defined Waypoints](#admin-defined-waypoints)
+3. [Configuration](#configuration)
+4. [Compilation](#compilation)
+5. [Contribution](#contribution)
+6. [License](#license)
+7. [Credits](#credits)
+
+## Installation
+To install QuickWarp on your PaperMC server, follow these steps:
+
+1. Download the latest release from the [Releases](https://github.com/YourUsername/QuickWarp/releases) page.
+2. Place the downloaded JAR file into the `plugins` folder of your PaperMC server.
+3. Restart the server.
+
 ## Commands
-Currently user has ability to switch between dimensions but I want to add functionality that allows admins to set specific teleport spots or waypoints.
+QuickWarp introduces simple yet powerful commands to enhance the teleportation experience for players and administrators.
 
-```mclang
-/overworld
-/nether
-/end
-```
-All 3 commands take player to the respective dimension. If player is already in the dimension they type command for they are hit with an error message in chat saying.
-```
-You cannot teleport to the dimenion you are in...
-```
-Though I plan to make the message configurable through the `config.json` file produced by the plugin.
+### Basic Dimension Teleportation
+Players can use the following commands to switch between dimensions:
 
-# Compile
-**Windows Commands**
+- `/overworld`: Teleports the player to the Overworld.
+- `/nether`: Teleports the player to the Nether.
+- `/end`: Teleports the player to the End.
+
+If a player is already in the dimension they attempt to teleport to, an error message will be displayed in the chat.
+
+### Admin-defined Waypoints
+Administrators have the ability to set specific teleport spots or waypoints. This feature is under development and will be available in future releases.
+
+## Configuration
+QuickWarp comes with a `config.json` file that allows server administrators to customize certain aspects of the plugin. The file includes options to configure error messages and potentially other features as they are added.
+
+Example `config.json`:
+```json
+{
+  "errorMessage": "You cannot teleport to the dimension you are in..."
+}
+```
+
+## Compilation
+If you wish to compile QuickWarp yourself, follow these commands based on your operating system:
+
+**Windows Commands:**
 ```batch
 gradlew setupdecompworkspace
 gradlew clean
 gradlew build
 ```
-**Linux Commands**
+
+**Linux Commands:**
 ```shell
 ./gradlew setupdecompworkspace
 ./gradlew clean
 ./gradlew build
 ```
 
-# Contribute
-If you want to contribute then fork the repository, make changes you want  and then make a pull request with a good description/title.
+## Contribution
+If you'd like to contribute to QuickWarp, follow these steps:
 
-# LICENSE
-This repository/project uses the GPL-3.0 LICENSE view [here](LICENSE).
+1. Fork the repository.
+2. Make the desired changes.
+3. Submit a pull request with a detailed description and title.
 
-# Credit
-[prime](https://github.com/PrimeTDMomega/) - Cool HOOman
-<br>
+## License
+QuickWarp is licensed under the GPL-3.0 License. View the full license [here](LICENSE).
+
+## Credits
+- [Prime](https://github.com/PrimeTDMomega/): Cool HOOman - Project Creator and Maintainer.
+
 **More Collaborators Coming SOON...**
