@@ -71,6 +71,12 @@ public class QuickWarp extends JavaPlugin {
         return true;
     }
 
+    public void sendHelpMessage(CommandSender sender) {
+        sender.sendMessage(ChatColor.GOLD + "QuickWarp Help:");
+        sender.sendMessage(ChatColor.GREEN + "/qw <dimension> - Teleport to the specified dimension.");
+        sender.sendMessage(ChatColor.GREEN + "/qw help - Display this help message.");
+    }
+
     @Override
     public void onDisable() {
         saveConfig();
