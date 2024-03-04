@@ -9,8 +9,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.prime.quickwarp.effects.Teleport;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -66,7 +64,6 @@ public class QuickWarp extends JavaPlugin {
         }
 
         player.teleport(warpLocation);
-        Teleport.playEffect(player, warpLocation);
         player.sendMessage(ChatColor.GREEN + "Teleported to " + dimension + ".");
         return true;
     }
