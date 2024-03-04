@@ -41,12 +41,14 @@ Administrators have the ability to set specific teleport spots or waypoints. Thi
 The `config.json` is quite simple.
 ```json
 {
+  "permission": true,
   "errorMSG": "You are already in this dimension.",
-  "permission": true
+  "cooldown": 5 // in seconds
 }
 ```
 - `errorMSG`: Changes the message that is displayed in chat when a player runs a command for a dimension they are already in.
 - `permission`: If set to `true` then plugin will check for OP perms on the player, in other words if set to `true` only OP players can use it if set to `false` all players can use it.
+- `cooldown`:  The cooldown time for teleporting between dimensions in seconds.
 
 ## Compilation
 If you wish to compile QuickWarp yourself, follow these commands based on your operating system:

@@ -11,16 +11,19 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class QuickWarp extends JavaPlugin {
 
     private FileConfiguration config;
+    private Map<UUID, Long> cooldowns;
     private Map<String, Location> warpLocations;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
         config = getConfig();
+        cooldowns = new HashMap<>();
         warpLocations = new HashMap<>();
         warpLocations.put("overworld", new Location(Bukkit.getWorld("world"), 0, 70, 0));
         warpLocations.put("nether", new Location(Bukkit.getWorld("DIM-1"), 0, 70, 0));
@@ -56,6 +59,16 @@ public class QuickWarp extends JavaPlugin {
             return true;
         }
 
+        if (cooldowns.containsKey(player.getUniqueId())) {
+            long currentTime = System.currentTimeMillis();
+            long cooldownEnd = cooldowns.get(player.getUniqueId());
+            if (currentTime < cooldownEnd) {
+                long remainingTime = (cooldownEnd - currentTime) / 1000;
+                player.sendMessage(ChatColor.RED + "Please wait " + remainingTime + " more seconds before using this command again.");
+                return true;
+            }
+        }
+
         Location warpLocation = warpLocations.get(dimension);
 
         if (player.getWorld().getEnvironment().equals(warpLocation.getWorld().getEnvironment())) {
@@ -65,6 +78,8 @@ public class QuickWarp extends JavaPlugin {
 
         player.teleport(warpLocation);
         player.sendMessage(ChatColor.GREEN + "Teleported to " + dimension + ".");
+
+        cooldowns.put(player.getUniqueId(), System.currentTimeMillis() + (config.getLong("cooldown") * 1000));
         return true;
     }
 
