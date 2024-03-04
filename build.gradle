@@ -14,11 +14,17 @@ repositories {
         mavenContent {
             allowInsecureProtocol = true
         }
+        content {
+            includeGroup 'org.bukkit'
+            includeGroup 'org.spigotmc'
+        }
     }
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url = 'https://oss.sonatype.org/content/repositories/central' }
 }
 
 dependencies {
-    implementation 'org.bukkit:bukkit:1.18.2'
+    compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
 }
 
 application {
@@ -33,10 +39,10 @@ jar {
             'Main-Class': 'me.prime.quickwarp.QuickWarp',
             'Implementation-Title': 'QuickWarp',
             'Implementation-Version': '1.2.0-BETA',
-            'Implementation-Vendor': 'Your Name',
+            'Implementation-Vendor': 'PrimeTDM',
             'Implementation-URL': 'https://example.com',
             'Bukkit-Plugin-Version': '1.2.0-BETA',
-            'Bukkit-API-Version': '1.18'
+            'Bukkit-API-Version': '1.8.8'
         )
     }
 }
