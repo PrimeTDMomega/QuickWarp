@@ -1,4 +1,4 @@
-# QuickWarp Plugin Wiki
+# QuickWarp
 
 A simple PaperMC plugin that allows players to switch between dimensions using commands.
 
