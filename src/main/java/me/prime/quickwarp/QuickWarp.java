@@ -3,6 +3,8 @@ package me.prime.quickwarp;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Particle; // WHY IS THIS GIVING ME AN ERROR
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -12,6 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+
 
 public class QuickWarp extends JavaPlugin {
 
@@ -78,6 +81,15 @@ public class QuickWarp extends JavaPlugin {
 
         player.teleport(warpLocation);
         player.sendMessage(ChatColor.GREEN + "Teleported to " + dimension + ".");
+
+        // Spiralling fire particle effect
+        World world = player.getWorld();
+        for (double angle = 0; angle < 360; angle += 5) {
+            double x = warpLocation.getX() + 0.5 * Math.cos(Math.toRadians(angle));
+            double z = warpLocation.getZ() + 0.5 * Math.sin(Math.toRadians(angle));
+            Location particleLocation = new Location(world, x, warpLocation.getY(), z);
+            world.spawnParticle(Particle.`enter code here`FLAME, particleLocation, 1, 0, 0, 0, 0);
+        }
 
         cooldowns.put(player.getUniqueId(), System.currentTimeMillis() + (config.getLong("cooldown") * 1000));
         return true;

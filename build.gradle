@@ -25,6 +25,7 @@ repositories {
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
+    implementation 'org.bukkit:bukkit:1.18.1-R0.1-SNAPSHOT'
 }
 
 application {
@@ -38,10 +39,10 @@ jar {
         attributes(
             'Main-Class': 'me.prime.quickwarp.QuickWarp',
             'Implementation-Title': 'QuickWarp',
-            'Implementation-Version': '1.4.0-BETA',
+            'Implementation-Version': '1.4.1-BETA',
             'Implementation-Vendor': 'PrimeTDM',
             'Implementation-URL': 'https://example.com',
-            'Bukkit-Plugin-Version': '1.4.0-BETA',
+            'Bukkit-Plugin-Version': '1.4.1-BETA',
             'Bukkit-API-Version': '1.20.4'
         )
     }
