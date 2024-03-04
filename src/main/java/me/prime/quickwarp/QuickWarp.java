@@ -1,4 +1,4 @@
-// WK owns u and all
+// wk owns u and all
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -39,6 +39,13 @@ public class QuickWarp extends JavaPlugin implements CommandExecutor {
         }
 
         Player player = (Player) sender;
+
+        if (config.getBoolean("permission")) {
+            if (!player.hasPermission("quickwarp.use")) {
+                player.sendMessage(ChatColor.RED + "You do not have permission to use this command.");
+                return true;
+            }
+        }
 
         if (args.length == 0) {
             player.sendMessage(ChatColor.RED + "Usage: /qw <overworld|nether|end>");
