@@ -1,25 +1,46 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.bukkit.bukkit-plugin' version '1.0.0'
 }
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-dependencies {
-    implementation 'org.bukkit:bukkit:1.18.1-R0.1-SNAPSHOT'
-}
-
-bukkit {
-    name = 'quickwarp'
-    version = '1.2.0-BETA'
-    main = 'me.prime.quickwarp.QuickWarp'
-    apiVersion = '1.18'
-    commands {
-        qw {
-            description = 'Teleports player to the specified dimension.'
-            usage = '/qw <overworld|nether|end>'
+repositories {
+    mavenCentral()
+    maven {
+        name = 'spigot-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+        mavenContent {
+            allowInsecureProtocol = true
         }
     }
+}
+
+dependencies {
+    implementation 'org.bukkit:bukkit:1.18.2'
+}
+
+application {
+    mainClass = 'me.prime.quickwarp.QuickWarp'
+    version = '1.2.0-BETA'
+    applicationDefaultJvmArgs = ['-Xmx1024M']
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'me.prime.quickwarp.QuickWarp',
+            'Implementation-Title': 'QuickWarp',
+            'Implementation-Version': '1.2.0-BETA',
+            'Implementation-Vendor': 'Your Name',
+            'Implementation-URL': 'https://example.com',
+            'Bukkit-Plugin-Version': '1.2.0-BETA',
+            'Bukkit-API-Version': '1.18'
+        )
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
