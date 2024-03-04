@@ -25,7 +25,6 @@ repositories {
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
-    implementation 'org.bukkit:bukkit:1.18.1-R0.1-SNAPSHOT'
 }
 
 application {
