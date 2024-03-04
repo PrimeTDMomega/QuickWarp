@@ -25,6 +25,17 @@ To install QuickWarp on your PaperMC server, follow these steps:
 ## Commands
 QuickWarp introduces simple yet powerful commands to enhance the teleportation experience for players and administrators.
 
+### Configuration
+The `config.json` is quite simple.
+```json
+{
+  "errorMSG": "You are already in this dimension.",
+  "permission": true
+}
+```
+- `errorMSG`: Changes the message that is displayed in chat when a player runs a command for a dimension they are already in.
+- `permission`: If set to `true` then plugin will check for OP perms on the player, in other words if set to `true` only OP players can use it if set to `false` all players can use it.
+
 ### Basic Dimension Teleportation
 Players can use the following commands to switch between dimensions:
 
