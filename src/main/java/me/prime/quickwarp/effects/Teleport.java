@@ -1,9 +1,10 @@
 package me.prime.quickwarp.effects;
 
 import org.bukkit.Location;
-import org.bukkit.Particle;
 import org.bukkit.entity.Player;
+import org.bukkit.Particle;
 import org.bukkit.util.Vector;
+
 
 public class Teleport {
 
