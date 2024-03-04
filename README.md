@@ -78,6 +78,6 @@ If you'd like to contribute to QuickWarp, follow these steps:
 QuickWarp is licensed under the GPL-3.0 License. View the full license [here](LICENSE).
 
 ## Credits
-- [Prime](https://github.com/PrimeTDMomega/): Cool HOOman - Project Creator and Maintainer.
-
-**More Collaborators Coming SOON...**
+<a href="https://github.com/PrimeTDMomega/QuickWarp/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=PrimeTDMomega/QuickWarp" />
+</a>
