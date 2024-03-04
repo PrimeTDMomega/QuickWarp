@@ -5,10 +5,10 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
-public class QuickWarpMain implements CommandExecutor {
+public class QuickWarp implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -33,6 +33,11 @@ public class QuickWarpMain implements CommandExecutor {
                 return true;
         }
 
+        if (targetWorld == null) {
+            player.sendMessage("Target world not found.");
+            return true;
+        }
+
         if (player.getWorld().equals(targetWorld)) {
             player.sendMessage("You cannot warp to the dimension you are in...");
             return true;
@@ -43,8 +48,6 @@ public class QuickWarpMain implements CommandExecutor {
         return true;
     }
 }
-
-
 
 public class Main extends JavaPlugin {
 
