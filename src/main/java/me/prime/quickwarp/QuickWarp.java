@@ -1,7 +1,5 @@
 package me.prime.quickwarp;
 
-// wk owns u and all
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -68,5 +66,10 @@ public class QuickWarp extends JavaPlugin {
         player.teleport(warpLocation);
         player.sendMessage(ChatColor.GREEN + "Teleported to " + dimension + ".");
         return true;
+    }
+
+    @Override
+    public void onDisable() {
+        saveConfig();
     }
 }
