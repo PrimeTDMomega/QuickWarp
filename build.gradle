@@ -24,12 +24,12 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.19.3-R0.1-SNAPSHOT'
 }
 
 application {
     mainClass = 'me.prime.quickwarp.QuickWarp'
-    version = '1.0.1'
+    version = '1.0.2'
     applicationDefaultJvmArgs = ['-Xmx1024M']
 }
 
@@ -38,11 +38,11 @@ jar {
         attributes(
             'Main-Class': 'me.prime.quickwarp.QuickWarp',
             'Implementation-Title': 'QuickWarp',
-            'Implementation-Version': '1.0.1',
+            'Implementation-Version': '1.0.2',
             'Implementation-Vendor': 'PrimeTDM',
             'Implementation-URL': 'https://example.com',
-            'Bukkit-Plugin-Version': '1.0.1',
-            'Bukkit-API-Version': '1.20.4'
+            'Bukkit-Plugin-Version': '1.0.2',
+            'Bukkit-API-Version': '1.19.3'
         )
     }
 }
@@ -50,3 +50,13 @@ jar {
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
+
+// Add this new task to copy the config.yml file
+task copyConfig(type: Copy) {
+    from 'src/main/resources'
+    into 'build/resources/main'
+    include 'config.yml'
+}
+
+// Add this line to the jar task to depend on the copyConfig task
+jar.dependsOn copyConfig
