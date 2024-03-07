@@ -29,6 +29,8 @@ public class QuickWarp extends JavaPlugin {
         getCommand("qw").setExecutor(this);
     }
 
+    private Map<Player, Long> lastCommandTime = new HashMap<>();
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
@@ -68,6 +70,11 @@ public class QuickWarp extends JavaPlugin {
             return true;
         }
     
+        if (System.currentTimeMillis() - lastCommandTime.getOrDefault(player, 0L) < 3000) {
+            player.sendMessage(ChatColor.RED + "Please wait 3 seconds before using the quickwarp command again.");
+            return true;
+        }
+    
         // Spawn a spiralling fire particle effect at the player's location
         Location playerLocation = player.getLocation();
         for (int i = 0; i < 10; i++) {
@@ -78,6 +85,8 @@ public class QuickWarp extends JavaPlugin {
         // Set the player's invulnerability to true for 5 seconds
         player.setInvulnerable(true);
         Bukkit.getScheduler().runTaskLater(this, () -> player.setInvulnerable(false), 100);
+    
+        lastCommandTime.put(player, System.currentTimeMillis());
     
         player.teleport(warpLocation);
         player.sendMessage(ChatColor.GREEN + "Teleported to " + dimension + ".");
