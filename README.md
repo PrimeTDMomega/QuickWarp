@@ -61,7 +61,7 @@ If you'd like to contribute to QuickWarp, follow these steps:
 
 1. Fork the repository.
 2. Make the desired changes.
-3. Submit a pull request with a detailed description and title.
+3. Submit a pull request,
 
 ## Credits
 <a href="https://github.com/PrimeTDMomega/QuickWarp/graphs/contributors">
