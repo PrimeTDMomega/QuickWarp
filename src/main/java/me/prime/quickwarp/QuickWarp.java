@@ -3,6 +3,7 @@ package me.prime.quickwarp;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -66,6 +67,13 @@ public boolean onCommand(CommandSender sender, Command command, String label, St
             player.sendMessage(ChatColor.RED + "You cannot teleport to the same dimension!");
             return true;
         }
+
+            // Spawn a spiralling fire particle effect at the player's location
+    Location playerLocation = player.getLocation();
+    for (int i = 0; i < 10; i++) {
+        playerLocation.getWorld().spawnParticle(Particle.FLAME, playerLocation, 1, 0, 0, 0, 0.1);
+        playerLocation.add(0, 0.5, 0);
+    }
 
         player.teleport(warpLocation);
         player.sendMessage(ChatColor.GREEN + "Teleported to " + dimension + ".");
