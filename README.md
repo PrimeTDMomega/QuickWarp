@@ -1,19 +1,9 @@
+
 # QuickWarp
 
 A simple PaperMC plugin that allows players to switch between dimensions using commands.
 
 This is mostly for Minecraft Survival servers with many players on the same map in maybe a Lifesteal, Hardcore or Factions setup basically removing the hastle of end portals and portal trapping/portal crashing by directly teleporting a player to the dimension.
-
-## Table of Contents
-1. [Installation](#installation)
-2. [Commands](#commands)
-    - [Basic Dimension Teleportation](#basic-dimension-teleportation)
-    - [Admin-defined Waypoints](#admin-defined-waypoints)
-3. [Configuration](#configuration)
-4. [Compilation](#compilation)
-5. [Contribution](#contribution)
-6. [License](#license)
-7. [Credits](#credits)
 
 ## Installation
 To install QuickWarp on your PaperMC server, follow these steps:
@@ -23,10 +13,7 @@ To install QuickWarp on your PaperMC server, follow these steps:
 3. Restart the server.
 
 ## Commands
-QuickWarp introduces simple yet powerful commands to enhance the teleportation experience for players and administrators.
 
-### Basic Dimension Teleportation
-Players can use the following commands to switch between dimensions:
 
 - `/qw overworld`: Teleports the player to the Overworld.
 - `/qw nether`: Teleports the player to the Nether.
@@ -34,35 +21,37 @@ Players can use the following commands to switch between dimensions:
 
 If a player is already in the dimension they attempt to teleport to, an error message will be displayed in the chat.
 
-### Admin-defined Waypoints
-Administrators have the ability to set specific teleport spots or waypoints. This feature is under development and will be available in future releases.
-
 ## Configuration
 The `config.json` is quite simple.
 ```json
 {
   "permission": true,
   "errorMSG": "You are already in this dimension.",
-  "cooldown": 5 // in seconds
 }
 ```
 - `errorMSG`: Changes the message that is displayed in chat when a player runs a command for a dimension they are already in.
 - `permission`: If set to `true` then plugin will check for OP perms on the player, in other words if set to `true` only OP players can use it if set to `false` all players can use it.
-- `cooldown`:  The cooldown time for teleporting between dimensions in seconds.
 
+## Future Features
+Features I wish to implement, if you're a paper dev then feel free to help.
+
+1. Allow for setup of pre-determined waypoints that can be named and warped to.
+2. Make a UI for warping (maybe).
+3. Add a particle effect on warp.
+4. Add temporary damage immunity on warp.
+
+These will all be added (except maybe number 2 most coz I'm a bad developer and I think making a GUI will kill the point of the plugin being a fast means of travel).
 ## Compilation
 If you wish to compile QuickWarp yourself, follow these commands based on your operating system:
 
 **Windows Commands:**
 ```batch
-gradlew setupdecompworkspace
 gradlew clean
 gradlew build
 ```
 
 **Linux Commands:**
 ```shell
-./gradlew setupdecompworkspace
 ./gradlew clean
 ./gradlew build
 ```
@@ -73,9 +62,6 @@ If you'd like to contribute to QuickWarp, follow these steps:
 1. Fork the repository.
 2. Make the desired changes.
 3. Submit a pull request with a detailed description and title.
-
-## License
-QuickWarp is licensed under the GPL-3.0 License. View the full license [here](LICENSE).
 
 ## Credits
 <a href="https://github.com/PrimeTDMomega/QuickWarp/graphs/contributors">
