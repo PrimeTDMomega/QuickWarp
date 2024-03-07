@@ -28,9 +28,9 @@ QuickWarp introduces simple yet powerful commands to enhance the teleportation e
 ### Basic Dimension Teleportation
 Players can use the following commands to switch between dimensions:
 
-- `/overworld`: Teleports the player to the Overworld.
-- `/nether`: Teleports the player to the Nether.
-- `/end`: Teleports the player to the End.
+- `/qw overworld`: Teleports the player to the Overworld.
+- `/qw nether`: Teleports the player to the Nether.
+- `/qw end`: Teleports the player to the End.
 
 If a player is already in the dimension they attempt to teleport to, an error message will be displayed in the chat.
 
