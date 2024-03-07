@@ -58,8 +58,8 @@ public class QuickWarp extends JavaPlugin {
 
         Location warpLocation = warpLocations.get(dimension);
 
-        if (player.getWorld().getEnvironment().equals(warpLocation.getWorld().getEnvironment())) {
-            player.sendMessage(ChatColor.RED + config.getString("errorMSG"));
+        if (player.getWorld().equals(warpLocation.getWorld())) {
+            player.sendMessage(ChatColor.RED + "You cannot teleport to the same dimension!");
             return true;
         }
 
