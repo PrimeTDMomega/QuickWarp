@@ -13,4 +13,4 @@ commands:
 permissions:
   quickwarp.use:
     description: Use quickwarp command
-    default: op
+    default: true

@@ -29,20 +29,24 @@ public class QuickWarp extends JavaPlugin {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.RED + "Only players can use this command.");
-            return true;
-        }
+public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    if (!(sender instanceof Player)) {
+        sender.sendMessage(ChatColor.RED + "Only players can use this command.");
+        return true;
+    }
 
-        Player player = (Player) sender;
+    Player player = (Player) sender;
 
-        if (config.getBoolean("permission")) {
-            if (!player.hasPermission("quickwarp.use")) {
+    if (!player.hasPermission("quickwarp.use")) {
+        if (config.getBoolean("permissions.quickwarp.use")) {
+            if (!player.isOp()) {
                 player.sendMessage(ChatColor.RED + "You do not have permission to use this command.");
                 return true;
             }
+        } else {
+            return true;
         }
+    }
 
         if (args.length == 0) {
             player.sendMessage(ChatColor.RED + "Usage: /qw <overworld|nether|end>");
