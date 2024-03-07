@@ -23,8 +23,8 @@ public class QuickWarp extends JavaPlugin {
         config = getConfig();
         warpLocations = new HashMap<>();
         warpLocations.put("overworld", new Location(Bukkit.getWorld("world"), 0, 70, 0));
-        warpLocations.put("nether", new Location(Bukkit.getWorld("DIM-1"), 0, 70, 0));
-        warpLocations.put("end", new Location(Bukkit.getWorld("DIM1"), 0, 70, 0));
+        warpLocations.put("nether", new Location(Bukkit.getWorld("world_nether"), 0, 70, 0));
+        warpLocations.put("end", new Location(Bukkit.getWorld("world_the_end"), 0, 70, 0));
         getCommand("qw").setExecutor(this);
     }
 
