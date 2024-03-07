@@ -30,51 +30,55 @@ public class QuickWarp extends JavaPlugin {
     }
 
     @Override
-public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-    if (!(sender instanceof Player)) {
-        sender.sendMessage(ChatColor.RED + "Only players can use this command.");
-        return true;
-    }
-
-    Player player = (Player) sender;
-
-    if (!player.hasPermission("quickwarp.use")) {
-        if (config.getBoolean("permissions.quickwarp.use")) {
-            if (!player.isOp()) {
-                player.sendMessage(ChatColor.RED + "You do not have permission to use this command.");
-                return true;
-            }
-        } else {
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (!(sender instanceof Player)) {
+            sender.sendMessage(ChatColor.RED + "Only players can use this command.");
             return true;
         }
-    }
-
+    
+        Player player = (Player) sender;
+    
+        if (!player.hasPermission("quickwarp.use")) {
+            if (config.getBoolean("permissions.quickwarp.use")) {
+                if (!player.isOp()) {
+                    player.sendMessage(ChatColor.RED + "You do not have permission to use this command.");
+                    return true;
+                }
+            } else {
+                return true;
+            }
+        }
+    
         if (args.length == 0) {
             player.sendMessage(ChatColor.RED + "Usage: /qw <overworld|nether|end>");
             return true;
         }
-
+    
         String dimension = args[0].toLowerCase();
-
+    
         if (!warpLocations.containsKey(dimension)) {
             player.sendMessage(ChatColor.RED + "Invalid dimension. Use overworld, nether, or end.");
             return true;
         }
-
+    
         Location warpLocation = warpLocations.get(dimension);
-
+    
         if (player.getWorld().equals(warpLocation.getWorld())) {
             player.sendMessage(ChatColor.RED + "You cannot teleport to the same dimension!");
             return true;
         }
-
-            // Spawn a spiralling fire particle effect at the player's location
-    Location playerLocation = player.getLocation();
-    for (int i = 0; i < 10; i++) {
-        playerLocation.getWorld().spawnParticle(Particle.FLAME, playerLocation, 1, 0, 0, 0, 0.1);
-        playerLocation.add(0, 0.5, 0);
-    }
-
+    
+        // Spawn a spiralling fire particle effect at the player's location
+        Location playerLocation = player.getLocation();
+        for (int i = 0; i < 10; i++) {
+            playerLocation.getWorld().spawnParticle(Particle.FLAME, playerLocation, 1, 0, 0, 0, 0.1);
+            playerLocation.add(0, 0.5, 0);
+        }
+    
+        // Set the player's invulnerability to true for 5 seconds
+        player.setInvulnerable(true);
+        Bukkit.getScheduler().runTaskLater(this, () -> player.setInvulnerable(false), 100);
+    
         player.teleport(warpLocation);
         player.sendMessage(ChatColor.GREEN + "Teleported to " + dimension + ".");
         return true;
